@@ -436,6 +436,7 @@ static const char *find_linux_ld(void)
 				case ARCH_TYPE_MIPSEL: return "--dynamic-linker=/lib/ld-linux-mipsn8.so.1";
 				case ARCH_TYPE_MIPS64: return "--dynamic-linker=/lib/ld-linux-mipsn8.so.1";
 				case ARCH_TYPE_MIPS64EL: return "--dynamic-linker=/lib/ld-linux-mipsn8.so.1";
+				case ARCH_TYPE_PPC64: return "--dynamic-linker=/lib64/ld64.so.2";
 				case ARCH_TYPE_RISCV32: return "-dynamic-linker=/lib/ld-linux-riscv32-ilp32.so.1";
 				case ARCH_TYPE_RISCV64: return "-dynamic-linker=/lib/ld-linux-riscv64-lp64.so.1";
 				case ARCH_TYPE_SPARCV9: return "--dynamic-linker=/lib/ld-linux.so.2";
