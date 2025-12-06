@@ -459,7 +459,7 @@ static void update_build_target_from_options(BuildTarget *target, BuildOptions *
 		default: UNREACHABLE_VOID;
 	}
 
-	if (target->arch_os_target == ARCH_OS_TARGET_DEFAULT) target->arch_os_target = default_target;
+	if (target->arch_os_target == ARCH_OS_TARGET_DEFAULT) target->arch_os_target = DEFAULT_TARGET;
 
 	if (target->arch_os_target == ARCH_OS_TARGET_DEFAULT)
 	{
