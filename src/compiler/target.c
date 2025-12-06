@@ -1077,7 +1077,7 @@ static inline void target_setup_x64_abi(BuildTarget *target)
 	compiler.platform.abi = ABI_X64;
 	X86CpuSet cpu_set;
 	compiler.platform.x64.is_win64 = compiler.platform.os == OS_TYPE_WIN32;
-	bool is_native = target->arch_os_target == DEFAULT_TARGET;
+	bool is_native = target->arch_os_target == default_target;
 	if (!is_native && target->feature.x86_cpu_set == X86CPU_NATIVE) target->feature.x86_cpu_set = X86CPU_DEFAULT;
 	if (target->feature.x86_cpu_set != X86CPU_DEFAULT)
 	{
