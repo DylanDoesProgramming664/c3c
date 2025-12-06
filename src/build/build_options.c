@@ -866,7 +866,7 @@ static void parse_option(BuildOptions *options)
 			{
 				if (str_eq(argopt, "host"))
 				{
-					options->linux_libc = default_libc;
+					options->linux_libc = (LinuxLibc)DEFAULT_LIBC;
 				}
 				else
 					options->linux_libc = parse_opt_select(LinuxLibc, argopt, linuxlibc);
