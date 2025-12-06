@@ -2079,7 +2079,7 @@ extern const char *kw_std;
 extern const char *kw_type;
 extern const char *kw_winmain;
 extern const char *kw_wmain;
-extern ArchOsTarget default_target;
+extern ArchOsTarget DEFAULT_TARGET;
 
 ARENA_DEF(chars, char)
 ARENA_DEF(ast, Ast)

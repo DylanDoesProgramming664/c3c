@@ -723,7 +723,7 @@ void compiler_compile(void)
 		;
 		file_create_folders(output_exe);
 		bool system_linker_available = link_libc() && compiler.platform.os != OS_TYPE_WIN32;
-		bool use_system_linker = system_linker_available && compiler.build.arch_os_target == default_target;
+		bool use_system_linker = system_linker_available && compiler.build.arch_os_target == DEFAULT_TARGET;
 		switch (compiler.build.linker_type)
 		{
 			case LINKER_TYPE_CC:
