@@ -108,6 +108,7 @@ typedef enum
 	LINUX_LIBC_NOT_SET = -1,
 	LINUX_LIBC_GNU = 0,
 	LINUX_LIBC_MUSL = 1,
+	LINUX_LIBC_HOST = 2,
 } LinuxLibc;
 
 typedef enum
@@ -887,7 +888,7 @@ static BuildTarget default_build_target = {
 		.feature.panic_level = PANIC_NOT_SET,
 		.win.crt_linking = WIN_CRT_DEFAULT,
 		.win.def = NULL,
-		.linuxpaths.libc = LINUX_LIBC_GNU,
+		.linuxpaths.libc = LINUX_LIBC_HOST,
 		.switchrange_max_size = DEFAULT_SWITCHRANGE_MAX_SIZE,
 		.switchjump_max_size = DEFAULT_SWITCH_JUMP_MAX_SIZE,
 		.quiet = false,
@@ -903,7 +904,6 @@ extern const int manifest_default_keys_count;
 extern const char *manifest_target_keys[][2];
 extern const int manifest_target_keys_count;
 extern const char *arch_os_target[ARCH_OS_TARGET_LAST + 1];
-extern ArchOsTarget default_target;
 extern LinuxLibc default_libc;
 
 BuildOptions parse_arguments(int argc, const char *argv[]);
