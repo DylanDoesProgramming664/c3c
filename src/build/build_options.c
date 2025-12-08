@@ -8,7 +8,6 @@
 #include "git_hash.h"
 
 extern int llvm_version_major;
-extern LinuxLibc default_libc;
 bool silence_deprecation;
 
 static int arg_index;

@@ -903,6 +903,8 @@ extern const int manifest_default_keys_count;
 extern const char *manifest_target_keys[][2];
 extern const int manifest_target_keys_count;
 extern const char *arch_os_target[ARCH_OS_TARGET_LAST + 1];
+extern ArchOsTarget default_target;
+extern LinuxLibc default_libc;
 
 BuildOptions parse_arguments(int argc, const char *argv[]);
 ArchOsTarget arch_os_target_from_string(const char *target);
