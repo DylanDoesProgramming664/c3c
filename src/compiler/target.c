@@ -1174,17 +1174,16 @@ const char *arch_to_linker_arch(ArchType arch)
 
 static char *arch_to_target_triple(ArchOsTarget target, LinuxLibc linux_libc)
 {
-	LinuxLibc libc = (linux_libc == LINUX_LIBC_HOST || linux_libc == LINUX_LIBC_NOT_SET) ? default_libc : linux_libc;
 	switch (target)
 	{
 		case FREEBSD_X86: return "i386-unknown-freebsd";
 		case OPENBSD_X86: return "i386-unknown-openbsd";
 		case NETBSD_X86: return "i386-unknown-netbsd";
 		case MCU_X86: return "i386-pc-elfiamcu";
-		case LINUX_X86: return libc == LINUX_LIBC_MUSL ? "i386-unknown-linux-musl" : "i386-unknown-linux";
+		case LINUX_X86: return linux_libc == LINUX_LIBC_MUSL ? "i386-unknown-linux-musl" : "i386-unknown-linux";
 		case ELF_X86: return "i386-unknown-elf";
 		case MACOS_X64: return "x86_64-apple-macosx";
-		case LINUX_X64: return libc == LINUX_LIBC_MUSL ? "x86_64-pc-linux-musl" : "x86_64-pc-linux-gnu";
+		case LINUX_X64: return linux_libc == LINUX_LIBC_MUSL ? "x86_64-pc-linux-musl" : "x86_64-pc-linux-gnu";
 		case WINDOWS_X64: return "x86_64-pc-windows-msvc";
 		case MINGW_X64: return "x86_64-w64-windows-gnu";
 		case NETBSD_X64: return "x86_64-pc-netbsd";
@@ -1193,14 +1192,14 @@ static char *arch_to_target_triple(ArchOsTarget target, LinuxLibc linux_libc)
 		case ELF_X64: return "x86_64-unknown-elf";
 		case ANDROID_AARCH64: return "aarch64-linux-android";
 		case ANDROID_X86_64: return "x86_64-linux-android";
-		case LINUX_AARCH64: return libc == LINUX_LIBC_MUSL ? "aarch64-unknown-linux-musl" : "aarch64-unknown-linux-gnu";
+		case LINUX_AARCH64: return linux_libc == LINUX_LIBC_MUSL ? "aarch64-unknown-linux-musl" : "aarch64-unknown-linux-gnu";
 		case IOS_AARCH64: return "aarch64-apple-ios";
 		case MACOS_AARCH64: return "aarch64-apple-macosx";
 		case ELF_AARCH64: return "aarch64-unknown-elf";
 		case WINDOWS_AARCH64: return "aarch64-pc-windows-msvc";
-		case LINUX_RISCV32: return libc == LINUX_LIBC_MUSL ? "riscv32-unknown-linux-musl" : "riscv32-unknown-linux";
+		case LINUX_RISCV32: return linux_libc == LINUX_LIBC_MUSL ? "riscv32-unknown-linux-musl" : "riscv32-unknown-linux";
 		case ELF_RISCV32: return "riscv32-unknown-elf";
-		case LINUX_RISCV64: return libc == LINUX_LIBC_MUSL ? "riscv64-unknown-linux-musl" : "riscv64-unknown-linux";
+		case LINUX_RISCV64: return linux_libc == LINUX_LIBC_MUSL ? "riscv64-unknown-linux-musl" : "riscv64-unknown-linux";
 		case ELF_RISCV64: return "riscv64-unknown-elf";
 		case ELF_XTENSA: return "xtensa-unknown-elf";
 		case WASM32: return "wasm32-unknown-unknown";

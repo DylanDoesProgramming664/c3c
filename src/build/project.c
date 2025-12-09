@@ -487,13 +487,8 @@ static void load_into_build_target(BuildParseContext context, JSONObject *json, 
 
 	// linux-libc
 	LinuxLibc linux_libc = GET_SETTING(LinuxLibc, "linux-libc", linuxlibc, "`gnu`, `musl` or `host`.");
-	switch (linux_libc) {
-		case LINUX_LIBC_NOT_SET:
-		case LINUX_LIBC_HOST: linux_libc = default_libc;
-			break;
-		default: break;
-	}
-	target->linuxpaths.libc = linux_libc;
+	target->linuxpaths.libc =
+		(linux_libc == LINUX_LIBC_NOT_SET || linux_libc == LINUX_LIBC_HOST) ? default_libc : linux_libc;
 
 	// version
 	target->version = get_string(context, json, "version", target->version);
@@ -507,7 +502,7 @@ static void load_into_build_target(BuildParseContext context, JSONObject *json, 
 	// testfn
 	target->testfn = get_string(context, json, "testfn", target->testfn);
 
-	// testfn
+	// benchfn
 	target->benchfn = get_string(context, json, "benchfn", target->benchfn);
 
 	// link-libc

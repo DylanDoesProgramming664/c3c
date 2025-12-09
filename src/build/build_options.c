@@ -1506,7 +1506,7 @@ BuildOptions parse_arguments(int argc, const char *argv[])
 		.merge_functions = MERGE_FUNCTIONS_NOT_SET,
 		.slp_vectorization = VECTORIZATION_NOT_SET,
 		.loop_vectorization = VECTORIZATION_NOT_SET,
-		.linux_libc = LINUX_LIBC_HOST,
+		.linux_libc = default_libc,
 		.files = NULL,
 		.build_dir = NULL,
 		.output_dir = NULL,

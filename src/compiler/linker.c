@@ -402,8 +402,6 @@ static const char *find_linux_crt_begin(void)
 
 static const char *find_linux_ld(void)
 {
-	if (compiler.build.linuxpaths.libc == LINUX_LIBC_NOT_SET || compiler.build.linuxpaths.libc == LINUX_LIBC_HOST)
-		compiler.build.linuxpaths.libc = default_libc;
 	switch (compiler.build.linuxpaths.libc)
 	{
 		case LINUX_LIBC_MUSL:
@@ -428,7 +426,8 @@ static const char *find_linux_ld(void)
 			UNREACHABLE;
 			break;
 		case LINUX_LIBC_GNU:
-			switch (compiler.platform.arch) {
+			switch (compiler.platform.arch)
+			{
 				case ARCH_TYPE_ARM: return "--dynamic-linker=/lib/ld-linux.so.3";
 				case ARCH_TYPE_AARCH64: return "--dynamic-linker=/lib/ld-linux-aarch64.so.1";
 				case ARCH_TYPE_MIPS: return "--dynamic-linker=/lib/ld-linux-mipsn8.so.1";
